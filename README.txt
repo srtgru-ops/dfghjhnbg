@@ -13,4 +13,4 @@ https://docs.google.com/spreadsheets/d/1YuHIyEoiTy4hsOdcjxPJ9cqzp4tf1M5Vz7bMGdlX
 5. افتحي رابط /exec. يجب أن تظهر الاستبانة بدل خطأ «لم يتم العثور على ملف HTML باسم Index».
 6. سجلي ردًا تجريبيًا، ثم افتحي الشيت أعلاه. يجب أن يظهر صف الإجابات.
 
-index.html يحتوي رابط /exec مسبقًا؛ ارفعيه إلى GitHub بعد نجاح تجربة /exec. الرابط الأساسي يبقى داخل الموقع دون تحويل إلى Google Forms.
+index.html يحتوي رابط /exec الجديد مسبقًا؛ ارفعيه إلى GitHub بعد نجاح تجربة /exec. الرابط الأساسي يبقى داخل الموقع دون تحويل إلى Google Forms.
