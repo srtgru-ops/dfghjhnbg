@@ -29,9 +29,9 @@
       .survey-open .hero{display:block;position:sticky;top:0;z-index:2;box-shadow:0 4px 18px rgba(7,75,55,.12)}
       .survey-open .mobile-entry{display:none}
       .survey-open .survey{padding:0}
-      .survey-open .survey-frame{display:block;width:100%;max-width:none;height:3040px;margin:0;overflow:hidden;border:0;border-radius:0;box-shadow:none}
-      /* The hosted form still has an older blue heading; the image above takes its place. */
-      .survey-open iframe{height:3200px;margin-top:-160px}
+      .survey-open .survey-frame{display:block;width:100%;max-width:none;height:calc(100dvh - 50vw - 5px);min-height:380px;margin:0;overflow:hidden;border:0;border-radius:0;box-shadow:none}
+      /* Keep the form in one viewport so its own step change scrolls to the first question. */
+      .survey-open iframe{height:calc(100% + 160px);margin-top:-160px}
     }
   </style>
 </head>
@@ -39,7 +39,7 @@
   <header class="hero"><img class="banner" src="./banner.webp" alt="قياس مدى فهم تحديثات منصة العمل التطوعي بإمارة منطقة تبوك، مع شعارات إمارة منطقة تبوك وجامعة تبوك والمنصة الوطنية للعمل التطوعي وإدامة" width="1774" height="887"></header>
   <main class="survey">
     <section class="mobile-entry"><h1>استبانة قياس المعرفة والاحتياجات</h1><p>اضغط للبدء والإجابة عن الأسئلة داخل الموقع.</p><button id="start-survey" type="button">ابدأ الاستبانة</button></section>
-    <div class="survey-frame"><iframe id="app" title="استبانة قياس المعرفة والاحتياجات" loading="eager"></iframe></div>
+    <div class="survey-frame"><iframe id="app" title="استبانة قياس المعرفة والاحتياجات" loading="eager" scrolling="yes"></iframe></div>
     <p id="notice" class="fallback" hidden>تعذّر تحميل الاستبانة. يُرجى تحديث الصفحة والمحاولة مرة أخرى.</p>
   </main>
   <script>
