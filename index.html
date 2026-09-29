@@ -17,17 +17,26 @@
     /* The deployed Apps Script still contains its former 160px title bar. */
     iframe{display:block;width:100%;height:calc(100% + 160px);margin-top:-160px;border:0;background:#edf2f2}
     .fallback{max-width:980px;margin:25px auto;padding:20px;border-radius:14px;background:#fff;color:#07513f}
+    .mobile-entry{display:none}
     @media(max-width:700px){
-      .survey{padding:14px 0 32px}
-      .survey-frame{width:100%;max-width:none;height:2440px;margin:0;overflow:hidden;border:0;border-radius:0;box-shadow:none}
-      /* Give the embedded form enough room for every step so the page itself can scroll to "التالي". */
-      iframe{height:2600px;margin-top:-160px}
+      .survey{padding:22px 16px 38px}
+      .mobile-entry{display:block;max-width:520px;margin:0 auto;background:#fff;border:1px solid #d9e7db;border-radius:18px;padding:24px 20px;text-align:center;box-shadow:0 12px 30px rgba(7,75,55,.08)}
+      .mobile-entry h1{font-size:23px;line-height:1.5;color:#07513f;margin:0 0 10px}
+      .mobile-entry p{color:#586d63;line-height:1.8;margin:0 0 18px}
+      .mobile-entry button{display:block;width:100%;background:#08664f;color:#fff;border:0;font:inherit;font-weight:700;border-radius:12px;padding:15px 18px;min-height:52px;cursor:pointer}
+      .mobile-entry button:focus-visible{outline:3px solid #b89a62;outline-offset:3px}
+      .survey-frame{display:none}
+      .survey-open .hero,.survey-open .mobile-entry{display:none}
+      .survey-open .survey{padding:0}
+      .survey-open .survey-frame{display:block;width:100%;max-width:none;height:3200px;margin:0;overflow:visible;border:0;border-radius:0;box-shadow:none}
+      .survey-open iframe{height:3200px;margin:0}
     }
   </style>
 </head>
 <body>
   <header class="hero"><img class="banner" src="./banner.webp" alt="قياس مدى فهم تحديثات منصة العمل التطوعي بإمارة منطقة تبوك، مع شعارات إمارة منطقة تبوك وجامعة تبوك والمنصة الوطنية للعمل التطوعي وإدامة" width="1774" height="887"></header>
   <main class="survey">
+    <section class="mobile-entry"><h1>استبانة قياس المعرفة والاحتياجات</h1><p>اضغط للبدء والإجابة عن الأسئلة داخل الموقع.</p><button id="start-survey" type="button">ابدأ الاستبانة</button></section>
     <div class="survey-frame"><iframe id="app" title="استبانة قياس المعرفة والاحتياجات" loading="eager"></iframe></div>
     <p id="notice" class="fallback" hidden>تعذّر تحميل الاستبانة. يُرجى تحديث الصفحة والمحاولة مرة أخرى.</p>
   </main>
@@ -36,6 +45,13 @@
     const app=document.querySelector('#app');
     if(APP_URL.startsWith('https://script.google.com/macros/s/')&&APP_URL.endsWith('/exec')) app.src=APP_URL;
     else {app.hidden=true;document.querySelector('#notice').hidden=false}
+    const start=document.querySelector('#start-survey');
+    function openSurvey(){
+      document.body.classList.add('survey-open');
+      window.scrollTo(0,0);
+    }
+    start.addEventListener('click',openSurvey);
+    if(location.hash==='#survey') openSurvey();
   </script>
 </body>
 </html>
