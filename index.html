@@ -26,10 +26,12 @@
       .mobile-entry button{display:block;width:100%;background:#08664f;color:#fff;border:0;font:inherit;font-weight:700;border-radius:12px;padding:15px 18px;min-height:52px;cursor:pointer}
       .mobile-entry button:focus-visible{outline:3px solid #b89a62;outline-offset:3px}
       .survey-frame{display:none}
-      .survey-open .hero,.survey-open .mobile-entry{display:none}
+      .survey-open .hero{display:block;position:sticky;top:0;z-index:2;box-shadow:0 4px 18px rgba(7,75,55,.12)}
+      .survey-open .mobile-entry{display:none}
       .survey-open .survey{padding:0}
-      .survey-open .survey-frame{display:block;width:100%;max-width:none;height:3200px;margin:0;overflow:visible;border:0;border-radius:0;box-shadow:none}
-      .survey-open iframe{height:3200px;margin:0}
+      .survey-open .survey-frame{display:block;width:100%;max-width:none;height:3040px;margin:0;overflow:hidden;border:0;border-radius:0;box-shadow:none}
+      /* The hosted form still has an older blue heading; the image above takes its place. */
+      .survey-open iframe{height:3200px;margin-top:-160px}
     }
   </style>
 </head>
